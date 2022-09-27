@@ -1,0 +1,23 @@
+id: wp-stafflist
+
+info:
+  name: Wordpress PLugin Stafflist - SQLi
+  author: spyx
+  severity: high
+  description: SQLi - Authenticated
+  reference: https://www.exploit-db.com/exploits/50928
+  tags: wordpress
+
+requests:
+  - method: GET
+    path:
+      - '{{BaseURL}}/wp-content/plugins/stafflist/readme.txt'
+    matchers-condition: and
+    matchers:
+      - type: status
+        status:
+          - 200
+
+      - type: word
+        words:
+          - 'Description'

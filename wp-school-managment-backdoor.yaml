@@ -1,0 +1,19 @@
+id: school-managment-backdoor
+
+info:
+  name: School managment backdoor
+  author: spyx
+  severity: high
+  description: Backdoor in school Managment
+  reference: https://www.exploit-db.com/exploits/50969
+  tags: wordpress
+
+requests:
+  - method: GET
+    path:
+      - '{{BaseURL}}/wp-json/am-member/license'
+
+    matchers:
+      - type: status
+        status: 
+          - 200

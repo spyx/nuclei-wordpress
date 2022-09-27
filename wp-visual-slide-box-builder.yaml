@@ -1,0 +1,23 @@
+id: visual-slide-box-builder
+
+info: 
+  name: Wordpres Plugin Visual Slide Box Builder SQLi
+  author: spyx
+  severity: high
+  description: SQLi on plugin
+  reference: https://www.exploit-db.com/exploits/50980
+  tags: wordpress
+
+requests:
+  - method: GET
+    path:
+      - '{{BaseURL}}/wp-content/plugins/wp-visual-slidebox-builder/readme.txt'
+    matchers-condition: and
+    matchers:
+      - type: status
+        status:
+          - 200
+
+      - type: word
+        words:
+          - 'Description'

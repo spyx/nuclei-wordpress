@@ -1,0 +1,23 @@
+id: motopress-hotel-booking-lite
+
+info:
+  name: WP Plugin motopress hotel booking lite XSS
+  author: spyx
+  severity: high
+  description: XXS on plugin version 4.2.4
+  tags: wordpress
+
+requests:
+  - method: GET
+    path:
+      - '{{BaseURL}}/wp-content/plugins/motopress-hotel-booking-lite/readme.txt'
+
+    matchers-condition: and
+    matchers:
+      - type: status
+        status:
+          - 200
+
+      - type: word
+        words:
+          - 'Description'

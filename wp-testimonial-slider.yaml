@@ -1,0 +1,18 @@
+id: wordpress-testimonial
+
+info:
+  name: Wordpress Testimonail Slider
+  author: spyx
+  severity: high
+  description: Wordpress Plugin Testimonial Slider XXS
+  reference: https://www.exploit-db.com/exploits/51007
+  tags: wordpress
+
+requests: 
+  - method: GET
+    path: 
+      - '{{BaseURL}}/wp-content/plugins/testimonial-slider-and-showcase/README.txt'
+    matchers:
+      - type: status
+        status:
+          - 200

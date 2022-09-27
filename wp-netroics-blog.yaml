@@ -1,0 +1,18 @@
+id: wordpress-netroics
+
+info: 
+  name: Wordpress Netroics Blog Stored XXS
+  author: spyx
+  severity: high
+  description: Wordpress Netroics Stored XXS Blog Posts Grid 1.0
+  reference: https://www.exploit-db.com/exploits/51008
+  tags: wordpress
+
+requests:
+  - method: GET
+    path:
+      - '{{BaseURL}}/wp-content/plugins/netroics-blog-posts-grid/readme.txt'
+    matchers:
+      - type: status
+        status: 
+          - 200 

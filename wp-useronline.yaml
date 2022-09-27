@@ -1,0 +1,23 @@
+id: wp-useronline
+
+info:
+  name: Wordpress wp-useronline XSS
+  author: spyx
+  severity: high
+  description: Wordpress wp-onloine plugin XXS 
+  reference: https://www.exploit-db.com/exploits/50988
+  tags: wordpress
+
+requests:
+  - method: GET
+    path:
+      - '{{BaseURL}}/wp-content/plugins/wp-useronline/readme.txt'
+    matchers-condition: and
+    matchers:
+      - type: status
+        status:
+          - 200
+
+      - type: word
+        words:
+          - 'Description'

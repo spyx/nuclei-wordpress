@@ -1,0 +1,23 @@
+id: Wordpress-Duplicator
+
+info:
+  name: Wordpress Plugin Duplicator Information Disclosure or Unauthenticated Backup Download
+  author: spyx
+  severity: high
+  description: Information Disclosure in Wordpress Plugin Duplicator
+  reference: https://www.exploit-db.com/exploits/50993, https://www.exploit-db.com/exploits/50992
+  tags: wordpress
+
+requests:
+  - method: GET
+    path:
+      - '{{BaseURL}}/wp-content/plugins/duplicator/readme.txt'
+    matchers-condition: and
+    matchers:
+      - type: status
+        status: 
+          - 200
+
+      - type: word
+        words: 
+          - '== Description =='
